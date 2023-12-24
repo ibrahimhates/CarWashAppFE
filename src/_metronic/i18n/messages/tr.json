@@ -1,0 +1,341 @@
+{
+  "TRANSLATOR": {
+    "SELECT": "Dilinizi seçin"
+  },
+  "MENU": {
+    "COMPANIES": "Şirketler",
+    "REQUEST": {
+      "PERMISSION": "İzin Talebi",
+      "ADVANCEPAYMENT": "Avans Talebi",
+      "MAINTITLE": "Talep Oluştur"
+    },
+    "CREATE": {
+      "COMPANY": {
+        "TITLE": "Şirket Oluştur",
+        "NAME": "Ad",
+        "EMAIL": "Email",
+        "PHONE": {
+          "NUMBER": "Telefon Numarası"
+        },
+        "LOGO": "Logo"
+      }
+    },
+    "NEW": "Yeni",
+    "ACTIONS": "Hareketler",
+    "CREATE_POST": "Yeni Gönderi Oluştur",
+    "PAGES": "Sayfalar",
+    "FEATURES": "Özellikler",
+    "APPS": "Uygulamalar",
+    "DASHBOARD": "Kontrol Paneli",
+    "EMPLOYEES": "Çalışanlar",
+    "PERMISSIONS": "Talepler",
+    "REPORTS": "Raporlar",
+    "HOME": "Ana sayfa",
+    "SETTINGS": "Ayarlar"
+  },
+  "AUTH": {
+    "GENERAL": {
+      "OR": "Veya",
+      "SUBMIT_BUTTON": "Gönder",
+      "NO_ACCOUNT": "Hesabınız yok mu?",
+      "SIGNUP_BUTTON": "Kayıt Ol",
+      "FORGOT_BUTTON": "Şifremi Unuttum",
+      "BACK_BUTTON": "Geri",
+      "PRIVACY": "Gizlilik",
+      "LEGAL": "Hukuki",
+      "CONTACT": "İletişim"
+    },
+    "LOGIN": {
+      "TITLE": "Giriş Yapın",
+      "BUTTON": "Giriş Yap"
+    },
+    "FORGOT": {
+      "TITLE": "Şifremi Unuttum?",
+      "DESC": "Şifrenizi sıfırlamak için e-postanızı girin",
+      "SUCCESS": "Hesabınız başarıyla sıfırlandı."
+    },
+    "REGISTER": {
+      "TITLE": "Kaydolun",
+      "DESC": "Hesabınızı oluşturmak için bilgilerinizi girin",
+      "SUCCESS": "Hesabınız başarıyla kaydedildi."
+    },
+    "INPUT": {
+      "EMAIL": "E-posta",
+      "FULLNAME": "Ad ve Soyad",
+      "PASSWORD": "Şifre",
+      "CONFIRM_PASSWORD": "Şifreyi Onayla",
+      "USERNAME": "Kullanıcı Adı"
+    },
+    "VALIDATION": {
+      "INVALID": "{name} geçerli değil",
+      "REQUIRED": "{name} alanı zorunludur",
+      "MIN_LENGTH": "{name} minimum uzunluğu {min} karakterdir",
+      "AGREEMENT_REQUIRED": "Koşulları kabul etmek zorunludur",
+      "NOT_FOUND": "İstenen {name} bulunamadı",
+      "INVALID_LOGIN": "Giriş bilgileri yanlış",
+      "REQUIRED_FIELD": "Zorunlu alan",
+      "MIN_LENGTH_FIELD": "Minimum alan uzunluğu:",
+      "MAX_LENGTH_FIELD": "Maksimum alan uzunluğu:",
+      "INVALID_FIELD": "Alan geçerli değil"
+    }
+  },
+  "ECOMMERCE": {
+    "COMMON": {
+      "SELECTED_RECORDS_COUNT": "Seçilen kayıt sayısı: ",
+      "ALL": "Hepsi",
+      "SUSPENDED": "Askıya Alındı",
+      "ACTIVE": "Aktif",
+      "FILTER": "Filtrele",
+      "BY_STATUS": "Duruma Göre",
+      "BY_TYPE": "Tipe Göre",
+      "BUSINESS": "İşletme",
+      "INDIVIDUAL": "Bireysel",
+      "SEARCH": "Ara",
+      "IN_ALL_FIELDS": "tüm alanlarda"
+    },
+    "ECOMMERCE": "E-Ticaret",
+    "CUSTOMERS": {
+      "CUSTOMERS": "Müşteriler",
+      "CUSTOMERS_LIST": "Müşteri listesi",
+      "NEW_CUSTOMER": "Yeni Müşteri",
+      "DELETE_CUSTOMER_SIMPLE": {
+        "TITLE": "Müşteriyi Sil",
+        "DESCRIPTION": "Bu müşteriyi kalıcı olarak silmek istediğinizden emin misiniz?",
+        "WAIT_DESCRIPTION": "Müşteri siliniyor...",
+        "MESSAGE": "Müşteri başarıyla silindi"
+      },
+      "DELETE_CUSTOMER_MULTY": {
+        "TITLE": "Müşterileri Sil",
+        "DESCRIPTION": "Seçili müşterileri kalıcı olarak silmek istediğinizden emin misiniz?",
+        "WAIT_DESCRIPTION": "Müşteriler siliniyor...",
+        "MESSAGE": "Seçili müşteriler başarıyla silindi"
+      },
+      "UPDATE_STATUS": {
+        "TITLE": "Seçili müşterilerin durumu güncellendi",
+        "MESSAGE": "Seçili müşterilerin durumu başarıyla güncellendi"
+      },
+      "EDIT": {
+        "UPDATE_MESSAGE": "Müşteri başarıyla güncellendi",
+        "ADD_MESSAGE": "Müşteri başarıyla oluşturuldu"
+      }
+    },
+    "INPUT": {
+      "EMAIL": "E-posta",
+      "FULLNAME": "Ad ve Soyad",
+      "PASSWORD": "Şifre",
+      "CONFIRM_PASSWORD": "Şifreyi Onayla",
+      "USERNAME": "Kullanıcı Adı"
+    },
+    "VALIDATION": {
+      "INVALID": "{name} geçerli değil",
+      "REQUIRED": "{name} alanı zorunludur",
+      "MIN_LENGTH": "{name} minimum uzunluğu {min} karakterdir",
+      "AGREEMENT_REQUIRED": "Koşulları kabul etmek zorunludur",
+      "NOT_FOUND": "İstenen {name} bulunamadı",
+      "INVALID_LOGIN": "Giriş bilgileri yanlış",
+      "REQUIRED_FIELD": "Zorunlu alan",
+      "MIN_LENGTH_FIELD": "Minimum alan uzunluğu:",
+      "MAX_LENGTH_FIELD": "Maksimum alan uzunluğu:",
+      "INVALID_FIELD": "Alan geçerli değil"
+    }
+  },
+  "HOME": {
+    "PAGE": {
+      "WIDGET1": {
+        "HEADER": "Çalışan Dağılımı",
+        "OFFICE": "Şube",
+        "DEPARTMANT": "Departman",
+        "AGE": "Yaş",
+        "GENDER": "Cinsiyet",
+        "TITLE": "Ünvan"
+      },
+      "LISTWIDGET1": {
+        "UPCOMING": {
+          "PERMISSIONS": "Son 5 İzin Talebim"
+        }
+      },
+      "CARDWIDGET17IZIN": {
+        "TITLE": "Kalan İzinlerim/Yıllık",
+        "REMAINING": {
+          "DAYS": "Gün"
+        },
+        "RECENT": {
+          "PERMISSIONS": "Son İzinlerim"
+        }
+      },
+      "CARDWIDGET17TATIL": {
+        "HOLIDAYS": "Resmi Tatiller"
+      },
+      "BIRTHDAYWIDGET": {
+        "TITLE": "Doğum Günleri"
+      }
+    }
+  },
+  "EMPLOYEES": {
+    "PAGE": {
+      "PROFILE": {
+        "CARD": {
+          "SEND": {
+            "MAIL": "Mail Gönder"
+          }
+        }
+      },
+      "NAVBAR": {
+        "ADD": {
+          "EMPLOYEE": "Yeni Çalışan Ekle"
+        },
+        "UNITS": "Birimler"
+      },
+      "CREATE": {
+        "EMPLOYEE": {
+          "NAME": "Ad",
+          "SURNAME": "Soyad",
+          "EMAIL_PERSONAL": "Kişisel E-posta",
+          "EMAIL_WORK": "İş E-posta",
+          "PHONE_WORK": "İş Telefonu",
+          "PHONE_PERSONAL": "Kişisel Telefon",
+          "START_DATE": "İşe Başlama Tarihi",
+          "ACCESS_TYPE": "Erişim Türü",
+          "CONTRACT_TYPE": "Sözleşme Türü",
+          "CONTRACT_END_DATE": "Sözleşme Bitiş Tarihi",
+          "TITLE": "Çalışan Oluştur"
+        }
+      },
+      "SEND": {
+        "EMAIL": "Bilgilendirme e-postası gönderilsin mi?"
+      }
+    }
+  },
+  "PERMISSONS": {
+    "PAGE": {
+      "TITLE": "İzinler"
+    }
+  },
+  "REQUESTPERMISSION": {
+    "PAGE": {
+      "CREATE": {
+        "PERMISSION": {
+          "TITLE": "İzin Talebi Oluştur",
+          "TOTALPLACE": "Kullanılacak Gün",
+          "STARTDATE": "Başlangıç Tarihi",
+          "ENDDATE": "Bitiş Tarihi",
+          "DESCRIPTION": "Açıklama"
+        }
+      }
+    }
+  },
+  "REQUESTPADVANCE": {
+    "PAGE": {
+      "CREATE": {
+        "PERMISSION": {
+          "TITLE": "Avans Talebi Oluştur",
+          "AMOUNT": "Miktar",
+          "DESCRIP": "Açıklama",
+          "DELIVERYDATE": "Talep Edilen Tarih"
+        }
+      }
+    }
+  },
+
+  "MESSAGES": {
+    "ERRORS": {
+      "CREATE": {
+        "POSITION": {
+          "EPositionC01": "Pozisyonun baslangic tarihi bitiş tarihinden once olmali",
+          "EPositionC02": "tarihler ayni"
+        },
+        "APPROVALPROCESS": {
+          "EApprovalC01": "Onay süreci başına bir kullanıcıdan yalnızca bir kez olabilir.",
+          "EApprovalC02": "Onay süreci kuyruğundaki kullanıcıların sırası yanlış.",
+          "EApprovalC03": "Daha fazla varsayılan onay süreci ekleyemezsiniz."
+        },
+        "COMPANY": {
+          "ECompanyC01": "Eklenen şirkete ait hesap sahibi eklenmedi!",
+          "ECompanyC02": "E-posta adresi zaten kayıtlı."
+        },
+        "LEAVEREQUEST": {
+          "ELeaveC01": "Başlangıç tarihi, bitiş tarihinden büyük veya ona eşit olmamalıdır!",
+          "ELeaveC02": "Mevcut ve devam eden bir izin talebiniz var.",
+          "ELeaveC03": "Talebiniz onaylanmış bir talebin tarihlerini kapsayamaz!",
+          "ELeaveC04": "Talebinizin başlangıç tarihi, onaylanmış izin talebinin başlangıç ve bitiş tarihleri arasında olamaz.",
+          "ELeaveC05": "Talebinizin bitiş tarihi, onaylanmış izin talebinin başlangıç ve bitiş tarihleri arasında olamaz.",
+          "ELeaveC06": "Resmi tatiller içe aktarılırken bir hata oluştu. Birkaç dakika sonra tekrar deneyin."
+        }
+      },
+      "DELETE": {
+        "APPROVALPROCESS": {
+          "EApprovalD01": "Varsayılan onay süreci silinemez."
+        }
+      }
+    },
+    "WARNINGS": {
+      "CREATE": {
+        "POSITION": {
+          "WPostitionC01": "İleri tarihe bir pozisyon şuanlık eklenemiyor",
+          "WPositionC02": "Sirkete eklenmis bir birim bulunamadi"
+        },
+        "ADVANCEREQUEST": {
+          "WAdvanceC01": "Kullanıcı bulunamadı!",
+          "WAdvanceC02": "Aktif bir kullanıcı değilsiniz",
+          "WAdvanceC03": "Onay süreci bulunamadı."
+        },
+        "APPROVALPROCESS": {
+          "WApprovalC01": "Onay sürecini ekleyecek firma bulunamadı.",
+          "WApprovalC02": "Onay sürecindeki kullanıcı bulunamadı veya etkin değil."
+        },
+        "LEAVEREQUEST": {
+          "WLeaveC01": "Kullanıcı bulunamadı!"
+        }
+      },
+      "UPDATE": {
+        "COMPANY": {
+          "WCompanyU01": "Güncellenecek şirket bulunamadı!"
+        }
+      },
+      "DELETE": {
+        "APPROVALPROCESS": {
+          "WApprovalD01": "İlgili onay süreci bulunamadı!"
+        },
+        "COMPANY": {
+          "WCompanyU01": "Silinecek şirket bulunamadı!"
+        }
+      }
+    },
+    "SUCCESSES": {
+      "CREATE": {
+        "POSITION": {
+          "SPostitionC01": "Pozisyon basarilir bir şekilde olusturuldu"
+        },
+        "ADVANCEREQUEST": {
+          "SAdvanceC01": "Avans talebi başarılı bir şekilde oluşturuldu"
+        },
+        "APPROVALPROCESS": {
+          "SApprovalC01": "Onay süreci başarıyla eklendi"
+        },
+        "Auth": {
+          "WAuthC01": "Eski şifreni kullanamazsın."
+        },
+        "COMPANY": {
+          "SCompanyC01": "Şirket başarıli bir şekilde eklendi."
+        },
+        "LEAVEREQUEST": {
+          "SLeaveC01": "İzin Talebi başarılı bir şekilde oluşturuldu."
+        }
+      },
+      "UPDATE": {
+        "COMPANY": {
+          "SCompanyU01": "Şirket başarıli bir şekilde güncellendi."
+        }
+      },
+      "DELETE": {
+        "APPROVALPROCESS": {
+          "SApprovalD01": "Onay süreci başarıyla silindi"
+        },
+        "COMPANY": {
+          "SCompanyD01": "Şirket başarılı bir şekilde pasife alındı.",
+          "SCompanyD02": "Şirket başarılı bir şekilde silindi."
+        }
+      }
+    }
+  }
+}

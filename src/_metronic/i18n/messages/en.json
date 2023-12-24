@@ -1,0 +1,336 @@
+{
+  "TRANSLATOR": {
+    "SELECT": "Select Your Language"
+  },
+  "MENU": {
+    "COMPANIES": "Companies",
+    "REQUEST": {
+      "PERMISSION": "Permission Request",
+      "ADVANCEPAYMENT": "Advance Payment Request",
+      "MAINTITLE": "Create Request"
+    },
+    "CREATE": {
+      "COMPANY": {
+        "TITLE": "Create Company",
+        "NAME": "Name",
+        "EMAIL": "Email",
+        "PHONE": {
+          "NUMBER": "Phone Number"
+        },
+        "LOGO": "Logo"
+      }
+    },
+    "NEW": "New",
+    "ACTIONS": "Actions",
+    "CREATE_POST": "Create New Post",
+    "PAGES": "Pages",
+    "FEATURES": "Features",
+    "APPS": "Apps",
+    "DASHBOARD": "Dashboard",
+    "EMPLOYEES": "Employees",
+    "PERMISSIONS": "Permissions",
+    "REPORTS": "Reports",
+    "HOME": "Home",
+    "SETTINGS": "Settings"
+  },
+  "AUTH": {
+    "GENERAL": {
+      "OR": "Or",
+      "SUBMIT_BUTTON": "Submit",
+      "NO_ACCOUNT": "Don't have an account?",
+      "SIGNUP_BUTTON": "Sign Up",
+      "FORGOT_BUTTON": "Forgot Password",
+      "BACK_BUTTON": "Back",
+      "PRIVACY": "Privacy",
+      "LEGAL": "Legal",
+      "CONTACT": "Contact"
+    },
+    "LOGIN": {
+      "TITLE": "Log In",
+      "BUTTON": "Log In"
+    },
+    "FORGOT": {
+      "TITLE": "Forgot Password?",
+      "DESC": "Enter your email to reset your password",
+      "SUCCESS": "Your account has been successfully reset."
+    },
+    "REGISTER": {
+      "TITLE": "Register",
+      "DESC": "Enter your information to create an account",
+      "SUCCESS": "Your account has been successfully registered."
+    },
+    "INPUT": {
+      "EMAIL": "Email",
+      "FULLNAME": "Full Name",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "USERNAME": "Username"
+    },
+    "VALIDATION": {
+      "INVALID": "{name} is invalid",
+      "REQUIRED": "{name} field is required",
+      "MIN_LENGTH": "{name} minimum length is {min} characters",
+      "AGREEMENT_REQUIRED": "Accepting the terms is required",
+      "NOT_FOUND": "Requested {name} not found",
+      "INVALID_LOGIN": "Incorrect login credentials",
+      "REQUIRED_FIELD": "Required field",
+      "MIN_LENGTH_FIELD": "Minimum field length:",
+      "MAX_LENGTH_FIELD": "Maximum field length:",
+      "INVALID_FIELD": "Field is invalid"
+    }
+  },
+  "ECOMMERCE": {
+    "COMMON": {
+      "SELECTED_RECORDS_COUNT": "Selected records count: ",
+      "ALL": "All",
+      "SUSPENDED": "Suspended",
+      "ACTIVE": "Active",
+      "FILTER": "Filter",
+      "BY_STATUS": "By Status",
+      "BY_TYPE": "By Type",
+      "BUSINESS": "Business",
+      "INDIVIDUAL": "Individual",
+      "SEARCH": "Search",
+      "IN_ALL_FIELDS": "in all fields"
+    },
+    "ECOMMERCE": "E-Commerce",
+    "CUSTOMERS": {
+      "CUSTOMERS": "Customers",
+      "CUSTOMERS_LIST": "Customer List",
+      "NEW_CUSTOMER": "New Customer",
+      "DELETE_CUSTOMER_SIMPLE": {
+        "TITLE": "Delete Customer",
+        "DESCRIPTION": "Are you sure you want to permanently delete this customer?",
+        "WAIT_DESCRIPTION": "Deleting customer...",
+        "MESSAGE": "Customer deleted successfully"
+      },
+      "DELETE_CUSTOMER_MULTY": {
+        "TITLE": "Delete Customers",
+        "DESCRIPTION": "Are you sure you want to permanently delete selected customers?",
+        "WAIT_DESCRIPTION": "Deleting customers...",
+        "MESSAGE": "Selected customers deleted successfully"
+      },
+      "UPDATE_STATUS": {
+        "TITLE": "Selected customers' status updated",
+        "MESSAGE": "Selected customers' status updated successfully"
+      },
+      "EDIT": {
+        "UPDATE_MESSAGE": "Customer updated successfully",
+        "ADD_MESSAGE": "Customer created successfully"
+      }
+    },
+    "INPUT": {
+      "EMAIL": "Email",
+      "FULLNAME": "Full Name",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "USERNAME": "Username"
+    },
+    "VALIDATION": {
+      "INVALID": "{name} is invalid",
+      "REQUIRED": "{name} field is required",
+      "MIN_LENGTH": "{name} minimum length is {min} characters",
+      "AGREEMENT_REQUIRED": "Accepting the terms is required",
+      "NOT_FOUND": "Requested {name} not found",
+      "INVALID_LOGIN": "Incorrect login credentials",
+      "REQUIRED_FIELD": "Required field",
+      "MIN_LENGTH_FIELD": "Minimum field length:",
+      "MAX_LENGTH_FIELD": "Maximum field length:",
+      "INVALID_FIELD": "Field is invalid"
+    }
+  },
+  "HOME": {
+    "PAGE": {
+      "WIDGET1": {
+        "HEADER": "Employee Distribution",
+        "OFFICE": "Office",
+        "DEPARTMANT": "Department",
+        "AGE": "Age",
+        "GENDER": "Gender",
+        "TITLE": "Title"
+      },
+      "LISTWIDGET1": {
+        "UPCOMING": {
+          "PERMISSIONS": "My Last 5 Permission Requests"
+        }
+      },
+      "CARDWIDGET17IZIN": {
+        "TITLE": "Remaining Leaves/Annual",
+        "REMAINING": {
+          "DAYS": "Days"
+        },
+        "RECENT": {
+          "PERMISSIONS": "My Recent Permissions"
+        }
+      },
+      "CARDWIDGET17TATIL": {
+        "HOLIDAYS": "Public Holidays"
+      },
+      "BIRTHDAYWIDGET": {
+        "TITLE": "Birthdays"
+      }
+    }
+  },
+  "EMPLOYEES": {
+    "PAGE": {
+      "PROFILE": {
+        "CARD": {
+          "SEND": {
+            "MAIL": "Send Mail"
+          }
+        }
+      },
+      "NAVBAR": {
+        "ADD": {
+          "EMPLOYEE": "Add New Employee"
+        },
+        "UNITS": "Units"
+      },
+      "CREATE": {
+        "EMPLOYEE": {
+          "NAME": "Name",
+          "SURNAME": "Surname",
+          "EMAIL_PERSONAL": "Personal Email",
+          "EMAIL_WORK": "Work Email",
+          "PHONE_WORK": "Work Phone",
+          "PHONE_PERSONAL": "Personal Phone",
+          "START_DATE": "Start Date",
+          "ACCESS_TYPE": "Access Type",
+          "CONTRACT_TYPE": "Contract Type",
+          "CONTRACT_END_DATE": "Contract End Date",
+          "TITLE": "Create Employee"
+        }
+      },
+      "SEND": {
+        "EMAIL": "Send notification email?"
+      }
+    }
+  },
+  "PERMISSONS": {
+    "PAGE": {
+      "TITLE": "Permissions"
+    }
+  },
+  "REQUESTPERMISSION": {
+    "PAGE": {
+      "CREATE": {
+        "PERMISSION": {
+          "TITLE": "Create Permission Request",
+          "TOTALPLACE": "Total Days to Use",
+          "STARTDATE": "Start Date",
+          "ENDDATE": "End Date",
+          "DESCRIPTION": "Description"
+        }
+      }
+    }
+  },
+  "REQUESTPADVANCE": {
+    "PAGE": {
+      "CREATE": {
+        "PERMISSION": {
+          "TITLE": "Create Advance Payment Request",
+          "AMOUNT": "Amount",
+          "DESCRIP": "Description",
+          "DELIVERYDATE": "Requested Date"
+        }
+      }
+    }
+  },
+
+  "MESSAGES": {
+    "ERRORS": {
+      "CREATE": {
+        "POSITION": {
+          "E1C01": "The start date of the position should be before the end date"
+        },
+        "APPROVALPROCESS": {
+          "EApprovalC01": "Can only occur once from a user per approval process",
+          "EApprovalC02": "The order of users in the approval process queue is incorrect",
+          "EApprovalC03": "You cannot add more default approval processes"
+        },
+        "COMPANY": {
+          "ECompanyC01": "The account owner of the added company has not been added!",
+          "ECompanyC02": "The email address is already registered."
+        },
+        "LEAVEREQUEST": {
+          "ELeaveC01": "The start date must not be greater than or equal to the end date.",
+          "ELeaveC02": "You have a current and ongoing leave request.",
+          "ELeaveC03": "Your request cannot cover the dates of an approved request!",
+          "ELeaveC04": "The start date of your request cannot be between the start and end dates of the approved leave request.",
+          "ELeaveC05": "The end date of your request cannot be between the start and end dates of the approved leave request.",
+          "ELeaveC06": "An error occurred while importing public holidays. Try again in a few minutes."
+        }
+      },
+      "DELETE": {
+        "APPROVALPROCESS": {
+          "EApprovalD01": "The default approval process cannot be deleted."
+        }
+      }
+    },
+    "WARNINGS": {
+      "CREATE": {
+        "POSITION": {
+          "W1C01": "A position cannot be added for a future date at the moment",
+          "W1C02": "No unit found for the company"
+        },
+        "ADVANCEREQUEST": {
+          "WAdvanceC01": "User could not found",
+          "WAdvanceC02": "You are not an active user",
+          "WAdvanceC03": "Aprovval process could not found."
+        },
+        "APPROVALPROCESS": {
+          "WApprovalC01": "The company to add the approval process could not be found.",
+          "WApprovalC02": "User in approval process not found or inactive."
+        },
+        "Auth": {
+          "WAuthC01": "You cannot type your old password."
+        },
+        "LEAVEREQUEST": {
+          "WLeaveC01": "User could not found!"
+        }
+      },
+      "UPDATE": {
+        "COMPANY": {
+          "WCompanyU01": "No company to update found!"
+        }
+      },
+      "DELETE": {
+        "APPROVALPROCESS": {
+          "WApprovalD01": "Relevant approval process not found!"
+        },
+        "COMPANY": {
+          "WCompanyU01": "No company to delete found!"
+        }
+      }
+    },
+    "SUCCESSES": {
+      "CREATE": {
+        "POSITION": {
+          "S1C01": "Position created successfully"
+        },
+        "ADVANCEREQUEST": {
+          "SAdvanceC01": "Addvance request created successfully."
+        },
+        "APPROVALPROCESS": {
+          "SApprovalC01": "Approval process added successfully."
+        },
+        "COMPANY": {
+          "SCompanyC01": "Company added successfully."
+        },
+        "LEAVEREQUEST": {
+          "SLeaveC01": "Leave Request has been created successfully."
+        }
+      },
+      "UPDATE": {
+        "COMPANY": {
+          "SCompanyU01": "Company updated successfully."
+        }
+      },
+      "DELETE": {
+        "APPROVALPROCESS": {
+          "SApprovalD01": "Approval process deleted successfully"
+        }
+      }
+    }
+  }
+}

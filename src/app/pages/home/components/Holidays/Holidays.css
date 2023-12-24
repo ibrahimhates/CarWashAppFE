@@ -1,0 +1,11 @@
+/* Add space between timeline-item and timeline-badge */
+.timeline-badge {
+    margin-bottom: 20px; /* You can adjust the value as needed */
+  }
+.timeline-label {
+    min-width: 90px;
+}
+.timeline-label:before {
+    margin-left: 40px;
+}
+  

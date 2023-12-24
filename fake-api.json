@@ -1,0 +1,108 @@
+{
+  "employees": [
+    {
+      "avatar": "/media/avatars/melih_kucuk.png",
+      "name": "Melih Küçük",
+      "job": "Stajyer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/mustafa-resim.png",
+      "name": "Mustafa Emirhan Yıldız",
+      "job": "Stajyer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/burakhan_kurt.jpg",
+      "name": "Burakhan Kurt",
+      "job": "Stajyer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/furkan_alev.jpg",
+      "name": "Furkan Demirtaş",
+      "job": ".Net Developer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/mehmet_becek.jpg",
+      "name": "Mehmet Becek",
+      "job": ".Net Developer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/ibrahim_ates.jpg",
+      "name": "İbrahim Halil Ateş",
+      "job": ".Net Developer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/volkan_abi_eşşşek_pp.png",
+      "name": "Volkan Kuzucu",
+      "job": ".Net Developer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/ismail_abi.png",
+      "name": "İsmail Özcan",
+      "job": ".Net Developer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/umut_abi.png",
+      "name": "Umut Onur",
+      "job": ".Net Developer",
+      "number": "+90 548 569 87 89",
+      "gender":"Erkek",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/umut_abi.png",
+      "name": "Elif Gör",
+      "job": "İş Analisti",
+      "number": "+90 548 000 00 01",
+      "gender":"Kadın",
+      "totalEarnings": "$236,400",
+      "color": ""
+    },
+    {
+      "avatar": "/media/avatars/umut_abi.png",
+      "name": "İdil Yalçınkaya",
+      "job": "PM",
+      "number": "+90 548 000 00 02",
+      "gender":"Kadın",
+      "totalEarnings": "$236,400",
+      "color": ""
+    }
+  ],
+  "employees-chart": [
+    { "title": "One", "value": 10, "color": "#f1416c" },
+    { "title": "Two", "value": 15, "color": "#50cd89" },
+    { "title": "Three", "value": 20, "color": "#009ef7" }
+  ]
+}
