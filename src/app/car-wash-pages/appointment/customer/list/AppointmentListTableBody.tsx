@@ -13,7 +13,6 @@ export interface Arac{
   paket:string;
   tarih:string;
 }
-
 const AppointmentListTableBody = ({status,id} :Test) => {
   const [showUpdate,setShowUpdate] = useState(false);
   const [showRating,setShowRating] = useState(false);
