@@ -2,6 +2,7 @@ import moment from 'moment'
 import React, {useState} from 'react'
 import {Rating} from '@mui/material'
 import {Test} from './EmployeeListTable'
+import CreateModal from '../create/CreateModal'
 
 export interface Arac{
   ad:string;
@@ -38,8 +39,8 @@ const AppointmentListTableBody = ({status,id} :Test) => {
             </>
         </div>
       </td>
-      {/*<UpdateModal handleClose={handleCloseUpdate} show={showUpdate} arac={arac} />
-      <RatingModal handleClose={handleCloseRatind} show={showRating} arac={arac} rating={rating} setRating={setRating}/>*/}
+      <CreateModal handleClose={handleCloseUpdate} show={showUpdate} />
+      {/*<RatingModal handleClose={handleCloseRatind} show={showRating} arac={arac} rating={rating} setRating={setRating}/>*/}
     </tr>
   )
 }
