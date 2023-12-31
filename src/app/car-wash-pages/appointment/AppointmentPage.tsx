@@ -1,12 +1,14 @@
 import CustomerAppointment from './customer/CustomerAppointment'
+import ManagerAppointment from './manager/ManagerAppointment'
 
 const AppointmentPage = () => {
 
   return (
     <div>
-      <CustomerAppointment/>
+      {/*<CustomerAppointment/>*/}
+      <ManagerAppointment/>
     </div>
   )
 }
 
-export  default AppointmentPage;
+export default AppointmentPage;

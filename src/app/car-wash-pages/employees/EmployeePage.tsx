@@ -1,8 +1,10 @@
+import Employee from './companents/Employee'
+
 const EmployeePage = () => {
 
   return (
     <div>
-      Employee Page
+      <Employee/>
     </div>
   )
 }
