@@ -9,8 +9,8 @@ const getAuth = (): AuthModel | undefined => {
   }
 
   try {
-    const auth: AuthModel = {api_token: token}
-    if (auth && auth.api_token) {
+    const auth: AuthModel = {token: token}
+    if (auth && auth.token) {
       // You can easily check auth_token expiration also
       return auth
     }
@@ -34,7 +34,7 @@ export function setupAxios(axios: any) {
     (config: { headers: { Authorization: string } }) => {
       const auth = getAuth()
       if (auth /*&& auth.api_token*/) {// todo refresh token sonrasi burasi duzeltilsin
-        config.headers.Authorization = `Bearer ${auth.api_token}`
+        config.headers.Authorization = `Bearer ${auth.token}`
       }
 
       return config

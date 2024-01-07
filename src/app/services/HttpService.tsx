@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestHeaders, AxiosResponse } from 'axios';
 
-export const API_URL = 'https://localhost:7215/api'
+export const API_URL = 'http://localhost:5223/api/v1'
 class HttpService {
   private httpService: AxiosInstance;
 

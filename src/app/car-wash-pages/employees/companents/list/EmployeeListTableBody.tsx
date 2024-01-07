@@ -1,6 +1,5 @@
 import moment from 'moment'
 import React, {useState} from 'react'
-import {Rating} from '@mui/material'
 import {Test} from './EmployeeListTable'
 import CreateModal from '../create/CreateModal'
 
@@ -12,8 +11,6 @@ export interface Arac{
 } 
 const AppointmentListTableBody = ({status,id} :Test) => {
   const [showUpdate,setShowUpdate] = useState(false);
-  const [showRating,setShowRating] = useState(false);
-  const [rating,setRating] = useState<number | null>(0)
 
   const [arac,setArac] = useState<Arac>({
     ad:'Ibrahim Halil',
@@ -22,7 +19,6 @@ const AppointmentListTableBody = ({status,id} :Test) => {
     tarih:'10.12.2024'
   })
   const handleCloseUpdate = () => setShowUpdate(false);
-  const handleCloseRatind = () => setShowRating(false);
 
   return (
     <tr key={id}>
@@ -40,7 +36,6 @@ const AppointmentListTableBody = ({status,id} :Test) => {
         </div>
       </td>
       <CreateModal handleClose={handleCloseUpdate} show={showUpdate} />
-      {/*<RatingModal handleClose={handleCloseRatind} show={showRating} arac={arac} rating={rating} setRating={setRating}/>*/}
     </tr>
   )
 }

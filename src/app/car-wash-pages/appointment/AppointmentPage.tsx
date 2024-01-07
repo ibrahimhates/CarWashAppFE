@@ -5,8 +5,8 @@ const AppointmentPage = () => {
 
   return (
     <div>
-      {/*<CustomerAppointment/>*/}
-      <ManagerAppointment/>
+      <CustomerAppointment/>
+     {/* <ManagerAppointment/>*/}
     </div>
   )
 }

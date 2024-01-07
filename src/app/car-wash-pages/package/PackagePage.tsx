@@ -1,8 +1,10 @@
+import Package from './components/Package'
+
 const PackagePage = () => {
 
   return (
     <div>
-      Package Page
+      <Package/>
     </div>
   )
 }

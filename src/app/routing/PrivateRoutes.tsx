@@ -29,8 +29,6 @@ const PrivateRoutes = () => {
   const WizardsPage = lazy(() => import('../modules/wizards/WizardsPage'))
   const AccountPage = lazy(() => import('../modules/accounts/AccountPage'))
   const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
-  const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
-  const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
   const EmployeesDetailPage = lazy(() => import('../pages/employees/EmployeeDetailPage'))
   const PermissionPage = lazy(() => import('../pages/permissions/PermissionPage'))
   const SettingRoute = lazy(() => import('../pages/settings/SettingRoute'))
@@ -120,22 +118,6 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <AccountPage />
-            </SuspensedView>
-          }
-        />
-        <Route
-          path='apps/chat/*'
-          element={
-            <SuspensedView>
-              <ChatPage />
-            </SuspensedView>
-          }
-        />
-        <Route
-          path='apps/user-management/*'
-          element={
-            <SuspensedView>
-              <UsersPage />
             </SuspensedView>
           }
         />

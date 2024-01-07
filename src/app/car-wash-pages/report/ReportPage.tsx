@@ -1,8 +1,10 @@
+import Report from './components/Report'
+
 const ReportPage = () => {
 
   return (
     <div>
-      Report Page
+      <Report/>
     </div>
   )
 }

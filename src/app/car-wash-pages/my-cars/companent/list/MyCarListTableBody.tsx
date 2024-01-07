@@ -1,52 +1,100 @@
 import moment from 'moment/moment'
 import React, {useState} from 'react'
-import UpdateModal, {Test} from '../update/UpdateModal'
+import UpdateModal from '../update/UpdateModal'
+import {Brand, Vehicle} from '../../MyCarsPage'
+import HttpService from '../../../../services/HttpService'
+import {showNotification} from '../../../../actions/notificationAction'
+import {useDispatch} from 'react-redux'
+import Swal, {SweetAlertResult} from 'sweetalert2'
 
 type Params = {
-  id: string
+  vehicle: Vehicle
+  brands: Brand[]
+  fetchAllVehicle:() => void
 }
 
-interface Arac {
-  plaka: string
-  marka: string
-  model: string
-  lastWashDate: string
-}
+const MyCarListTableBody = ({vehicle, brands,fetchAllVehicle}: Params) => {
+  const [show, setShow] = useState(false)
+  const [isExit, setExit] = useState(true)
 
-const MyCarListTableBody = ({id}: Params) => {
-  const [show,setShow] = useState(false)
-  const [arac, setArac] = useState<Arac>({
-    plaka: '23 DK 07',
-    marka: 'Hyundai',
-    model: 'Accent Blue',
-    lastWashDate: '10.12.2024',
-  })
+  const dispatch = useDispatch()
 
-  const testArac:Test = {
-    plaka:arac.plaka,
-    marka:arac.marka,
-    model:arac.model
+  const defaultDate = '0001-01-01T00:00:00'
+  const haveLastWash =
+    moment(vehicle.lastWashDate).format('YYYY-MM-DD') === moment(defaultDate).format('YYYY-MM-DD')
+  const handleClose = () => {
+    setShow(false)
   }
 
-  const handleClose = () => setShow(false);
+  const deleteHandler = async () => {
+    const result: SweetAlertResult = await Swal.fire({
+      title: 'Silmek istediginizden emin misiniz',
+      text: 'Bu islem geri alinamaz!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Evet. Sil',
+      confirmButtonColor: '#f1416c',
+      cancelButtonText: 'Iptal et!',
+      reverseButtons: true,
+    })
+
+    if (result.isConfirmed) {
+      deleteVehicle()
+    }
+  }
+  const deleteVehicle = () => {
+    HttpService.delete(`Vehicle/delete/${vehicle.id}`)
+      .then(() => {
+        Swal.fire('Silindi!', 'Arac basarili bir sekilde silindi.', 'success')
+        fetchAllVehicle();
+      })
+      .catch((err) => {
+        const data = err.response.data
+        dispatch(
+          showNotification({
+            type: 'error',
+            message: `${data.messages}`,
+          })
+        )
+      })
+  }
+
+
 
   return (
-    <tr key={id}>
-      <td>{arac.plaka}</td>
-      <td>{arac.marka}</td>
-      <td>{arac.model}</td>
-      <td>{moment(arac.lastWashDate).format('YYYY-MM-DD')}</td>
+    <tr key={vehicle.id}>
+      <td>{vehicle.plateNumber}</td>
+      <td>{vehicle.brand.name}</td>
+      <td>{vehicle.model}</td>
+      <td>
+        {haveLastWash ? 'Henuz Yikanmadi' : moment(vehicle.lastWashDate).format('YYYY-MM-DD')}
+      </td>
       <td>
         <div className='d-flex justify-content-center'>
-          <button className='btn btn-secondary me-2' onClick={() => setShow(true)}>
+          <button
+            className='btn btn-secondary me-2'
+            onClick={() => {
+              setExit(false)
+              setShow(true)
+            }}
+          >
             Duzenle
           </button>
-          <button className='btn btn-danger' onClick={() => {}}>
+          <button className='btn btn-danger' onClick={deleteHandler}>
             Sil
           </button>
         </div>
       </td>
-      <UpdateModal show={show} handleClose={handleClose} arac={testArac}/>
+      {!isExit && (
+        <UpdateModal
+          show={show}
+          handleClose={handleClose}
+          handleExit={() => setExit(true)}
+          vehicle={vehicle}
+          brands={brands}
+          fetchAllVehicle={fetchAllVehicle}
+        />
+      )}
     </tr>
   )
 }
