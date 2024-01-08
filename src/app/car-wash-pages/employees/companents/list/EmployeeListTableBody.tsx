@@ -1,31 +1,22 @@
 import moment from 'moment'
 import React, {useState} from 'react'
-import {Test} from './EmployeeListTable'
-import CreateModal from '../create/CreateModal'
+import {EmployeeList} from '../Employee'
 
-export interface Arac{
-  ad:string;
-  soyad:string;
-  position:string;
-  tarih:string;
-} 
-const AppointmentListTableBody = ({status,id} :Test) => {
+
+type Props = {
+  employee:EmployeeList
+}
+
+const EmployeeListTableBody = ({employee} :Props) => {
   const [showUpdate,setShowUpdate] = useState(false);
 
-  const [arac,setArac] = useState<Arac>({
-    ad:'Ibrahim Halil',
-    soyad:'Ates',
-    position:'Calisan',
-    tarih:'10.12.2024'
-  })
   const handleCloseUpdate = () => setShowUpdate(false);
 
   return (
-    <tr key={id}>
-      <td className='fw-bold'>{arac.ad}</td>
-      <td className='fw-bold'>{arac.soyad}</td>
-      <td>{arac.position}</td>
-      <td>{moment(arac.tarih).format('YYYY-MM-DD')}</td>
+    <tr key={employee.userId}>
+      <td className='fw-bold'>{employee.fullName}</td>
+      <td>{employee.roleName}</td>
+      <td>{moment(employee.hireDate).format('YYYY-MM-DD')}</td>
       <td>
         <div className='d-flex justify-content-center'>
             <>
@@ -35,9 +26,9 @@ const AppointmentListTableBody = ({status,id} :Test) => {
             </>
         </div>
       </td>
-      <CreateModal handleClose={handleCloseUpdate} show={showUpdate} />
+      {/*<CreateModal handleClose={handleCloseUpdate} show={showUpdate} />*/}
     </tr>
   )
 }
 
-export default AppointmentListTableBody
+export default EmployeeListTableBody

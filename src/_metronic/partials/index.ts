@@ -15,8 +15,6 @@ export * from './layout/theme-mode/ThemeModeSwitcher'
 // dropdpwns
 export * from './content/dropdown/Dropdown1'
 export * from './content/dropdown/Dropdown2'
-export * from '../../app/pages/home/components/DropdownDistribution/DropdownDistribution'
-export * from '../../app/pages/employees/components/DropdownEmployees/DropdownEmployees'
 
 // editors
 export * from './content/editor/EditorToolbar'

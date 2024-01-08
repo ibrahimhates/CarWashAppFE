@@ -3,12 +3,16 @@ import React from 'react'
 import RatingDetailListTable from './list/RatingDetailListTable'
 
 type Props = {
-  handleClose:() => void;
-  show:boolean;
+  handleClose: () => void
+  show: boolean
+  userId: number
+  name:string
 }
 
-const RatingDetailModal = ({handleClose,show}:Props) => {
-  return(
+
+
+const RatingDetailModal = ({handleClose, show,userId,name}: Props) => {
+  return (
     <Modal
       id='create_position_modal'
       tabIndex={-1}
@@ -19,13 +23,13 @@ const RatingDetailModal = ({handleClose,show}:Props) => {
       backdrop={true}
     >
       <ModalHeader className='justify-content-center'>
-        <ModalTitle>Rapor</ModalTitle>
+        <ModalTitle>{name+' Raporu'}</ModalTitle>
       </ModalHeader>
       <ModalBody>
-        <RatingDetailListTable/>
+        <RatingDetailListTable userId={userId}/>
       </ModalBody>
     </Modal>
   )
 }
 
-export default RatingDetailModal;
+export default RatingDetailModal

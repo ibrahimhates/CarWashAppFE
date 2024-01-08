@@ -11,7 +11,6 @@ import {PrivateRoutes} from './PrivateRoutes'
 import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {Logout, AuthPage, useAuth} from '../modules/auth'
 import {App} from '../App'
-import {useThemeMode} from '../../_metronic/partials/layout/theme-mode/ThemeModeProvider'
 import {ConfigProvider, theme} from 'antd'
 import { useSelector } from 'react-redux'
 
@@ -50,7 +49,7 @@ const AppRoutes: FC = () => {
             { currentUser ? (//currentUser
               <>
                 <Route path='/*' element={<PrivateRoutes />} />
-                <Route index element={<Navigate to='/dashboard' />} />
+                <Route index element={<Navigate to='/profiles' />} />
               </>
             ) : (
               <>

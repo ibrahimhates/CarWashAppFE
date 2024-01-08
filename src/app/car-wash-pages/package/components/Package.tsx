@@ -1,11 +1,39 @@
 import {useState} from 'react'
 import PackageListTable from './list/PackageListTable'
 import CreateModal from './create/CreateModal'
+import HttpService from '../../../services/HttpService'
+import {showNotification} from '../../../actions/notificationAction'
+import Cookies from 'js-cookie'
+import {useDispatch} from 'react-redux'
+
+export interface WashPackage {
+  id: number
+  packageName: string
+  description: string
+  price: number
+  duration: number
+}
 
 const Package = () => {
+  const [washPackage, setPackage] = useState<WashPackage[]>([])
   const [show, setShow] = useState(false)
+  const dispatch = useDispatch()
+  const fetchAllWashPackage = () => {
+    HttpService.get(`Washes/getAll`,Cookies.get("authToken"))
+      .then((response) => {
+        setPackage(response.data.data)
+      })
+      .catch((err) => {
+        dispatch(
+          showNotification({
+            type: 'error',
+            message: `Paketler listelenirken hata olustu`,
+          })
+        )
+      })
+  }
   const handleClose = () => setShow(false)
-  return(
+  return (
     <div className='card'>
       <div className='card-header'>
         <h1 className='card-title fw-bold'>Paketler</h1>
@@ -14,11 +42,11 @@ const Package = () => {
         </div>
       </div>
       <div className='card-body py-5'>
-        <PackageListTable/>
+        <PackageListTable washPackage={washPackage} fetchAllWashPackage={fetchAllWashPackage}/>
       </div>
-      <CreateModal handleClose={handleClose} show={show}/>
+      <CreateModal handleClose={handleClose} show={show} fetchAllWashPackage={fetchAllWashPackage}/>
     </div>
   )
 }
 
-export default Package;
+export default Package

@@ -1,11 +1,14 @@
 import axios from 'axios'
 import {AuthModel, Data, UserModel} from './_models'
 import HttpService, {API_URL} from '../../../services/HttpService'
+import {CustomerCreate} from '../components/Registration'
+import Cookies from 'js-cookie'
 
 export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/Auth/getuserbytoken`
 export const LOGIN_MANAGER_URL = `${API_URL}/Auth/emplogin`
 export const LOGIN_CUSTOMER_URL = `${API_URL}/Auth/custlogin`
-export const REGISTER_URL = `${API_URL}/register`
+export const REGISTER_URL = `${API_URL}/Auth/custregister`
+export const REGISTER_EMPLOYEE_URL = `${API_URL}/Auth/empregister`
 export const REQUEST_PASSWORD_URL = `${API_URL}/forgot_password`
 
 // Server should return AuthModel
@@ -20,20 +23,8 @@ export async function login(email: string, password: string,isManager:boolean) {
 }
 
 // Server should return AuthModel
-export function register(
-  email: string,
-  firstname: string,
-  lastname: string,
-  password: string,
-  password_confirmation: string
-) {
-  return axios.post(REGISTER_URL, {
-    email,
-    first_name: firstname,
-    last_name: lastname,
-    password,
-    password_confirmation,
-  })
+export function register(customer:CustomerCreate) {
+  return axios.post(REGISTER_URL, customer)
 }
 
 // Server should return object => { result: boolean } (Is Email in DB)

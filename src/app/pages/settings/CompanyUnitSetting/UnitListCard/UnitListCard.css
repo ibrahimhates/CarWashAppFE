@@ -1,9 +1,0 @@
-.card.mb-5.mb-xl-10 {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease-in-out;
-}
-
-.card.mb-5.mb-xl-10.expanded {
-    height: auto;
-}

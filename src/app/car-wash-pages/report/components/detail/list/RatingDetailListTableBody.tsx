@@ -1,31 +1,35 @@
 import {Rating} from '@mui/material'
 import RatingDetailModal from '../RatingDetailModal'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import {EmployeeReportDetail} from './RatingDetailListTable'
 
 type Props = {
-  id: string
+  detail:EmployeeReportDetail
 }
-const RatingDetailListTableBody = ({id}: Props) => {
-  const [report, setReport] = useState({
-    musteriAdi: 'Ahmet ***',
-    aracPlaka: '34 RC 234',
-    paket: 'Sadece Ic',
-    fiyat: 230.45,
-    yorum: 'Mukemmel Yikadi',
-    puan: 3,
-  })
+const RatingDetailListTableBody = ({detail}: Props) => {
+  const nameParts = detail.customerName.split(' ');
+  const [name, setName] = useState('')
+
+  useEffect(() => {
+    let maskCustomerName = ''
+    for (let i = 0; i < nameParts.length; i++) {
+      const maskedLastName = nameParts[i].substring(0, 2);
+      maskCustomerName+= ` ${maskedLastName}***`;
+    }
+    setName(maskCustomerName)
+  }, [])
 
   return (
-    <tr key={id} className='bg-secondary'>
-      <td>{report.musteriAdi}</td>
-      <td>{report.aracPlaka}</td>
-      <td>{report.paket}</td>
-      <td>{report.fiyat + ` TL`}</td>
-      <td>{report.yorum}</td>
+    <tr key={detail.id} className='bg-secondary'>
+      <td>{name}</td>
+      <td>{detail.plateNumber}</td>
+      <td>{detail.packageName}</td>
+      <td>{detail.amount + ` TL`}</td>
+      <td>{detail.comment}</td>
       <td>
-        {report.puan !== 0 ? (
+        {detail.rating ? (
           <div className='d-inline-flex align-items-center'>
-            <Rating size='medium' name='simple-controlled' value={report.puan} readOnly />
+            <Rating size='medium' name='simple-controlled' value={detail.rating+1} readOnly />
           </div>
         ) : (
           <span>{'-'}</span>

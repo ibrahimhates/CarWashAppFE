@@ -1,16 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from 'react'
+import {useState} from 'react'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import { Link } from 'react-router-dom'
-import { useFormik } from 'formik'
-import { getUserByToken, getUserInfosByToken, login } from '../core/_requests'
-import { toAbsoluteUrl } from '../../../../_metronic/helpers'
-import { useAuth } from '../core/Auth'
+import {Link} from 'react-router-dom'
+import {useFormik} from 'formik'
+import {getUserByToken, getUserInfosByToken, login, REGISTER_URL} from '../core/_requests'
+import {toAbsoluteUrl} from '../../../../_metronic/helpers'
+import {useAuth} from '../core/Auth'
 import Cookies from 'js-cookie'
-import { useDispatch } from 'react-redux'
-import { showNotification } from '../../../actions/notificationAction'
+import {useDispatch} from 'react-redux'
+import {showNotification} from '../../../actions/notificationAction'
 import {UserModel} from '../core/_models'
+import HttpService from '../../../services/HttpService'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -27,7 +28,7 @@ const loginSchema = Yup.object().shape({
 const initialValues = {
   email: 'ibrahim@ates.com',
   password: 'ibrahim123',
-  isActive:false
+  isActive: false,
 }
 
 /*
@@ -38,42 +39,50 @@ const initialValues = {
 
 export function Login() {
   const [loading, setLoading] = useState(false)
-  const { setCurrentUser } = useAuth()
+  const {setCurrentUser} = useAuth()
 
   const saveAuthTokenToCookie = (authToken: any) => {
     const expirationDate = new Date()
     expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000)
-    Cookies.set('authToken', authToken, { expires: expirationDate })
+    Cookies.set('authToken', authToken, {expires: expirationDate})
   }
 
-
-  const dispatch = useDispatch();
-
-
+  const dispatch = useDispatch()
 
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: async (values, { setStatus, setSubmitting }) => {
+    onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
-      try {
-        const { data: auth } = await login(values.email, values.password,values.isActive)
-        saveAuthTokenToCookie(auth.data.token)
-        /*const { data: user } = await getUserInfosByToken(auth.data.token)*/
-        const user : UserModel = getUserInfosByToken(null); // todo degistirelecek
-        console.log(user);
-        if(user.profilePicture === ""){
-          dispatch(showNotification({type: "info", message: "Henüz bir profil fotoğrafı konulmamış, lütfen bir profil fotoğrafı koyunuz."}))
-        }
-        setCurrentUser(user)
-      } catch (error) {
-        console.error(error)
-        setStatus('The login details are incorrect')
-        setSubmitting(false)
-        setLoading(false)
-        dispatch(showNotification({ message: 'Email veya şifre yanlış!', type: 'danger' }))
-
-      }
+      login(values.email, values.password, values.isActive)
+        .then((res) => {
+          dispatch(
+            showNotification({
+              type: 'success',
+              message: 'Giris Basarili',
+            })
+          )
+          saveAuthTokenToCookie(res.data.data.token)
+          //const {data: user} = await getUserByToken(null) // todo burasi duzeltilecek
+          const user: UserModel = getUserInfosByToken(null)
+          console.log(user)
+          setCurrentUser(user)
+          setLoading(false)
+          formik.resetForm()
+        })
+        .catch((err) => {
+          const data = err.response.data
+          dispatch(
+            showNotification({
+              type: 'error',
+              message: `${data.messages}`,
+            })
+          )
+          setStatus('The login details are incorrect')
+          setSubmitting(false)
+          setLoading(false)
+        })
+      /*const { data: user } = await getUserInfosByToken(auth.data.token)*/
     },
   })
 
@@ -97,7 +106,7 @@ export function Login() {
 
       {/* begin::Form group */}
       <div className='fv-row mb-8'>
-        <label className='form-label fs-6 fw-bolder text-dark'>Email Or UserName</label>
+        <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
         <input
           placeholder='Email'
           {...formik.getFieldProps('email')}
@@ -148,7 +157,9 @@ export function Login() {
 
       {/* Radio Buttons for True/False */}
       <div className='fv-row mb-5'>
-        <label className='form-label fw-bolder text-dark fs-6 mb-2'>Are you employee or customer?</label>
+        <label className='form-label fw-bolder text-dark fs-6 mb-2'>
+          Are you employee or customer?
+        </label>
         <div className='form-switch form-switch-sm form-check-custom'>
           <input
             className='form-check-input w-50px h-30px'

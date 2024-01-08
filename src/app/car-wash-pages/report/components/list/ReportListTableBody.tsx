@@ -1,33 +1,28 @@
 import {Rating} from '@mui/material'
 import React, {useState} from 'react'
 import RatingDetailModal from '../detail/RatingDetailModal'
+import {EmployeeReport} from './ReportListTable'
 
 type Props = {
-  id: string
+  report:EmployeeReport
 }
 
-const ReportListTableBody = ({id}: Props) => {
+const ReportListTableBody = ({report}: Props) => {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
 
-  const [report, setReport] = useState({
-    calisanAdi: 'Ibrahim Halil Ates',
-    haftalikGelir: 322.45,
-    aylikGelir: 2344.44,
-    genelPuan: 3.1,
-  })
 
   return (
-    <tr key={id}>
-      <td>{report.calisanAdi}</td>
-      <td>{report.haftalikGelir + ` TL`}</td>
-      <td>{report.aylikGelir + ` TL`}</td>
+    <tr key={report.userId}>
+      <td>{report.fullName}</td>
+      <td>{report.weeklyIncome + ` TL`}</td>
+      <td>{report.monthlyIncome + ` TL`}</td>
       <td>
-        {report.genelPuan !== 0 ? (
+        {report.totalScore !== 0 ? (
           <div className='d-inline-flex align-items-center'>
-            <Rating size='large' name='simple-controlled' value={report.genelPuan} readOnly />
-            <h3 className='fw-bold mt-3 ms-5'>{`${report.genelPuan}`}</h3>
+            <Rating size='large' name='simple-controlled' value={report.totalScore} readOnly />
+            <h3 className='fw-bold mt-3 ms-5'>{`${report.totalScore}`}</h3>
           </div>
         ) : (
           <span>{'-'}</span>
@@ -40,7 +35,7 @@ const ReportListTableBody = ({id}: Props) => {
           </button>
         </div>
       </td>
-      <RatingDetailModal handleClose={handleClose} show={show} />
+      <RatingDetailModal handleClose={handleClose} show={show} userId={report.userId} name={report.fullName}/>
     </tr>
   )
 }

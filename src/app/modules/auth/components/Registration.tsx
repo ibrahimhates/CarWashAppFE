@@ -4,12 +4,26 @@ import {useState, useEffect} from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {getUserByToken, register} from '../core/_requests'
+import {getUserByToken, register, REGISTER_URL} from '../core/_requests'
 import {Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {PasswordMeterComponent} from '../../../../_metronic/assets/ts/components'
 import {useAuth} from '../core/Auth'
 import {UserModel} from '../core/_models'
+import {useDispatch} from 'react-redux'
+import {showNotification} from '../../../actions/notificationAction'
+import HttpService from '../../../services/HttpService'
+
+export interface CustomerCreate {
+  firstname: string
+  lastname: string
+  address: string
+  phoneNumber: number
+  email: string
+  password: string
+  passwordConfirm: string
+  userName: string
+}
 
 const initialValues = {
   firstname: '',
@@ -18,7 +32,8 @@ const initialValues = {
   phoneNumber: 0,
   email: '',
   password: '',
-  changepassword: '',
+  passwordConfirm: '',
+  userName: '',
 }
 
 const registrationSchema = Yup.object().shape({
@@ -27,6 +42,10 @@ const registrationSchema = Yup.object().shape({
     .max(50, 'Maximum 50 symbols')
     .required('First name is required'),
   address: Yup.string().max(100, 'Maximum 100 characters').required('Address is required'),
+  userName: Yup.string()
+    .min(6, 'Minimum 6 characters')
+    .max(15, 'Maximum 15 characters')
+    .required('UserName is required'),
   phoneNumber: Yup.string()
     .matches(/^\d+$/, 'Phone number must contain only numeric characters')
     .length(11, 'Phone number must be exactly 11 characters')
@@ -44,39 +63,57 @@ const registrationSchema = Yup.object().shape({
     .min(3, 'Minimum 3 symbols')
     .max(50, 'Maximum 50 symbols')
     .required('Password is required'),
-  changepassword: Yup.string()
+  passwordConfirm: Yup.string()
     .required('Password confirmation is required')
     .when('password', {
       is: (val: string) => (val && val.length > 0 ? true : false),
       then: Yup.string().oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
-    })
+    }),
 })
 
 export function Registration() {
   const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
   const {setCurrentUser} = useAuth()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
-      try {
-        const {data: auth} = await register(
-          values.email,
-          values.firstname,
-          values.lastname,
-          values.password,
-          values.changepassword
-        )
-        //const {data: user} = await getUserByToken(null) // todo burasi duzeltilecek
-        const user:UserModel = getUserByToken(null);
-        setCurrentUser(user)
-      } catch (error) {
-        console.error(error)
-        setStatus('The registration details is incorrect')
-        setSubmitting(false)
-        setLoading(false)
+      const customer: CustomerCreate = {
+        firstname: values.firstname,
+        lastname: values.lastname,
+        address: values.address,
+        phoneNumber: values.phoneNumber,
+        email: values.email,
+        password: values.password,
+        passwordConfirm: values.passwordConfirm,
+        userName: values.userName,
       }
+      HttpService.post(REGISTER_URL, customer)
+        .then((res) => {
+          dispatch(
+            showNotification({
+              type: 'success',
+              message: 'Musteri basarili bir sekilde olusturuldu',
+            })
+          )
+          //const {data: user} = await getUserByToken(null) // todo burasi duzeltilecek
+          const user: UserModel = getUserByToken(null)
+          setLoading(false)
+          formik.resetForm()
+        })
+        .catch((err) => {
+          const data = err.response.data
+          dispatch(
+            showNotification({
+              type: 'error',
+              message: `${data.messages}`,
+            })
+          )
+          setLoading(false)
+          setSubmitting(false)
+        })
     },
   })
 
@@ -152,6 +189,34 @@ export function Registration() {
           <div className='fv-plugins-message-container'>
             <div className='fv-help-block'>
               <span role='alert'>{formik.errors.lastname}</span>
+            </div>
+          </div>
+        )}
+        {/* end::Form group */}
+      </div>
+
+      <div className='fv-row mb-8'>
+        {/* begin::Form group Lastname */}
+        <label className='form-label fw-bolder text-dark fs-6'>UserName</label>
+        <input
+          placeholder='UserName'
+          type='text'
+          autoComplete='off'
+          {...formik.getFieldProps('userName')}
+          className={clsx(
+            'form-control bg-transparent',
+            {
+              'is-invalid': formik.touched.userName && formik.errors.userName,
+            },
+            {
+              'is-valid': formik.touched.lastname && !formik.errors.userName,
+            }
+          )}
+        />
+        {formik.touched.userName && formik.errors.userName && (
+          <div className='fv-plugins-message-container'>
+            <div className='fv-help-block'>
+              <span role='alert'>{formik.errors.userName}</span>
             </div>
           </div>
         )}
@@ -295,21 +360,21 @@ export function Registration() {
           type='password'
           placeholder='Password confirmation'
           autoComplete='off'
-          {...formik.getFieldProps('changepassword')}
+          {...formik.getFieldProps('passwordConfirm')}
           className={clsx(
             'form-control bg-transparent',
             {
-              'is-invalid': formik.touched.changepassword && formik.errors.changepassword,
+              'is-invalid': formik.touched.passwordConfirm && formik.errors.passwordConfirm,
             },
             {
-              'is-valid': formik.touched.changepassword && !formik.errors.changepassword,
+              'is-valid': formik.touched.passwordConfirm && !formik.errors.passwordConfirm,
             }
           )}
         />
-        {formik.touched.changepassword && formik.errors.changepassword && (
+        {formik.touched.passwordConfirm && formik.errors.passwordConfirm && (
           <div className='fv-plugins-message-container'>
             <div className='fv-help-block'>
-              <span role='alert'>{formik.errors.changepassword}</span>
+              <span role='alert'>{formik.errors.passwordConfirm}</span>
             </div>
           </div>
         )}
