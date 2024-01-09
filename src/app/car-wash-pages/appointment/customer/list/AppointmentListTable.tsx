@@ -1,17 +1,13 @@
 import React, {useState} from 'react'
 import AppointmentListTableBody from './AppointmentListTableBody'
+import {AppointmentList} from '../CustomerAppointment'
 
-export interface Test{
-  status:boolean;
-  id:string
+type Props = {
+  appointmentList:AppointmentList[]
+  fetchAllAppointment:() => void
 }
-const AppointmentListTable = () => {
-  const [test,setTest] = useState<Test[]>([
-    {status: false,id:crypto.randomUUID()},
-    {status : true,id:crypto.randomUUID()},
-    {status:true,id:crypto.randomUUID()},
-    {status :true,id:crypto.randomUUID()}
-  ]);
+
+const AppointmentListTable = ({fetchAllAppointment,appointmentList}:Props) => {
 
 
   return (
@@ -28,10 +24,9 @@ const AppointmentListTable = () => {
       </thead>
       <tbody>
       {
-        test.map((item) => {
-
+        appointmentList.map((appointment) => {
           return(
-            <AppointmentListTableBody status={item.status} id={item.id} />
+            <AppointmentListTableBody appointment={appointment} fetchAllAppointment={fetchAllAppointment} />
           )
         })
       }

@@ -4,7 +4,7 @@ import HttpService, {API_URL} from '../../../services/HttpService'
 import {CustomerCreate} from '../components/Registration'
 import Cookies from 'js-cookie'
 
-export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/Auth/getuserbytoken`
+export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/Users/info`
 export const LOGIN_MANAGER_URL = `${API_URL}/Auth/emplogin`
 export const LOGIN_CUSTOMER_URL = `${API_URL}/Auth/custlogin`
 export const REGISTER_URL = `${API_URL}/Auth/custregister`
@@ -34,27 +34,7 @@ export function requestPassword(email: string) {
   })
 }
 
-/*export function getUserByToken(token: any) {
-  return HttpService.post(GET_USER_BY_ACCESSTOKEN_URL, null, token)
-}*/
 
-export function getUserByToken(token: any):UserModel {
-  return {
-    fullName: "ibrahim Halil Ates",
-    id: crypto.randomUUID(),
-    email: "ibrahim@ates.com",
-    profilePicture: '',
-    role: "SuperAdmin"
-  }
-}
-
-export function getUserInfosByToken(token: any) {
-  return {
-    fullName: "ibrahim Halil Ates",
-    id: crypto.randomUUID(),
-    email: "ibrahim@ates.com",
-    profilePicture: '',
-    role: "SuperAdmin"
-  }
- /* return HttpService.post(GET_USER_BY_ACCESSTOKEN_URL, null, token)*/
+export async function getUserInfosByToken(token: any) {
+  return await HttpService.post(GET_USER_BY_ACCESSTOKEN_URL, null, token)
 }

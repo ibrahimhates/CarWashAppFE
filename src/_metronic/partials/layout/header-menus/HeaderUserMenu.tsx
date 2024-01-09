@@ -15,17 +15,11 @@ const HeaderUserMenu: FC = () => {
       <div className='menu-item px-3'>
         <div className='menu-content d-flex align-items-center px-3'>
           <div className='symbol symbol-50px me-5'>
-            {currentUser &&
-              (currentUser.profilePicture != '' ? (
-                <img
-                  alt='Logo'
-                  src={`data:image/png+svg+xml;base64,${currentUser.profilePicture}`}
-                />
-              ) : (
-                <span className={`symbol-label bg-light-primary text-danger fs-5 fw-bolder`}>
-                  {currentUser.fullName?.charAt(0)}
-                </span>
-              ))}
+            {currentUser && (
+              <span className={`symbol-label bg-light-primary text-danger fs-5 fw-bolder`}>
+                {currentUser.fullName?.charAt(0)}
+              </span>
+            )}
           </div>
 
           <div className='d-flex flex-column'>
@@ -43,18 +37,8 @@ const HeaderUserMenu: FC = () => {
       <div className='separator my-2'></div>
 
       <div className='menu-item px-5'>
-        <Link to={`/profile/${currentUser?.id}/detail`} className='menu-link px-5'>
+        <Link to={`/profiles`} className='menu-link px-5'>
           My Profile
-        </Link>
-      </div>
-
-      <div className='separator my-2'></div>
-
-      <Languages />
-
-      <div className='menu-item px-5 my-1'>
-        <Link to='/settings/profilSetting' className='menu-link px-5'>
-          Account Settings
         </Link>
       </div>
 

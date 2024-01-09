@@ -27,6 +27,16 @@ const SidebarMenuMain = () => {
           fontIcon='bi-app-indicator'
         />
       )}
+
+      {roles.whoseToken === 'Employee' && roles.role === 'Worker' && (
+        <SidebarMenuItem
+          to={`/appointments`}
+          icon='/icons/sidebar/gen014.svg'
+          title={'Randevular'}
+          fontIcon='bi-app-indicator'
+        />
+      )}
+
       {roles.whoseToken === 'Customer' && (
         <SidebarMenuItem
           to={`/appointments`}

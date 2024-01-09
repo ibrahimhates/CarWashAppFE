@@ -25,13 +25,13 @@ export enum Role {
 }
 
 export enum Days {
+  Sunday,
   Monday,
   Tuesday,
   Wednesday,
   Thursday,
   Friday,
-  Saturday,
-  Sunday,
+  Saturday
 }
 export interface Attandace {
   offDays: Days[]

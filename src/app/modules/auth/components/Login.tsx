@@ -4,7 +4,6 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
-import {getUserByToken, getUserInfosByToken, login, REGISTER_URL} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {useAuth} from '../core/Auth'
 import Cookies from 'js-cookie'
@@ -12,6 +11,7 @@ import {useDispatch} from 'react-redux'
 import {showNotification} from '../../../actions/notificationAction'
 import {UserModel} from '../core/_models'
 import HttpService from '../../../services/HttpService'
+import {getUserInfosByToken, login} from '../core/_requests'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -55,7 +55,7 @@ export function Login() {
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       login(values.email, values.password, values.isActive)
-        .then((res) => {
+        .then(async (res) => {
           dispatch(
             showNotification({
               type: 'success',
@@ -63,10 +63,8 @@ export function Login() {
             })
           )
           saveAuthTokenToCookie(res.data.data.token)
-          //const {data: user} = await getUserByToken(null) // todo burasi duzeltilecek
-          const user: UserModel = getUserInfosByToken(null)
-          console.log(user)
-          setCurrentUser(user)
+          const {data: user} = await getUserInfosByToken(Cookies.get('authToken'))
+          setCurrentUser(user.data)
           setLoading(false)
           formik.resetForm()
         })

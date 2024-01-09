@@ -1,11 +1,11 @@
 import clsx from 'clsx'
-import { KTSVG, toAbsoluteUrl } from '../../../helpers'
-import { HeaderNotificationsMenu, HeaderUserMenu, Search, ThemeModeSwitcher } from '../../../partials'
-import { useLayout } from '../../core'
-import { useAuth } from '../../../../app/modules/auth'
-import { useEffect } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { customJwtDecode } from '../../../../app/CustomJwt'
+import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import {HeaderNotificationsMenu, HeaderUserMenu, Search, ThemeModeSwitcher} from '../../../partials'
+import {useLayout} from '../../core'
+import {useAuth} from '../../../../app/modules/auth'
+import {useEffect} from 'react'
+import {LazyLoadImage} from 'react-lazy-load-image-component'
+import {customJwtDecode} from '../../../../app/CustomJwt'
 import Cookies from 'js-cookie'
 
 const itemClass = 'ms-1 ms-lg-3'
@@ -15,14 +15,13 @@ const userAvatarClass = 'symbol-35px symbol-md-40px'
 const btnIconClass = 'svg-icon-1'
 
 const Navbar = () => {
-  const { config } = useLayout()
+  const {config} = useLayout()
   const token: any = Cookies.get(`authToken`)
-  const { currentUser } = useAuth()
-  const decode: { Role: string } = customJwtDecode(token)
+  const {currentUser} = useAuth()
+  const decode: {Role: string} = customJwtDecode(token)
   const role: string = decode.Role
   return (
     <div className='app-navbar bg-white'>
-
       <div className={clsx('app-navbar-item', itemClass)}>
         <div
           className={clsx('cursor-pointer symbol', userAvatarClass)}
@@ -30,17 +29,11 @@ const Navbar = () => {
           data-kt-menu-attach='parent'
           data-kt-menu-placement='bottom-end'
         >
-          {currentUser &&
-            (currentUser.profilePicture != '' ? (
-              <LazyLoadImage
-                alt='Logo'
-                src={`data:image/png+svg+xml;base64,${currentUser.profilePicture}`}
-              />
-            ) : (
-              <span className={`symbol-label bg-light-primary text-danger fs-5 fw-bolder`}>
-                {currentUser.fullName?.charAt(0)}
-              </span>
-            ))}
+          {currentUser && (
+            <span className={`symbol-label bg-light-primary text-danger fs-5 fw-bolder`}>
+              {currentUser.fullName?.charAt(0)}
+            </span>
+          )}
         </div>
         <HeaderUserMenu />
       </div>
@@ -59,4 +52,4 @@ const Navbar = () => {
   )
 }
 
-export { Navbar }
+export {Navbar}

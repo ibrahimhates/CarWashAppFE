@@ -1,65 +1,90 @@
 import moment from 'moment'
-import {Test} from './AppointmentListTable'
-import CreateModal from '../create/CreateModal'
 import React, {useState} from 'react'
-import UpdateModal from '../update/UpdateModal'
 import RatingModal from '../rating/RatingModal'
 import {Rating} from '@mui/material'
+import {AppointmentList, CarWashStatus} from '../CustomerAppointment'
+import Swal, {SweetAlertResult} from 'sweetalert2'
+import HttpService from '../../../../services/HttpService'
+import {useDispatch} from 'react-redux'
+import {showNotification} from '../../../../actions/notificationAction'
 
-export interface Arac{
-  plaka:string;
-  marka:string;
-  model:string;
-  paket:string;
-  tarih:string;
-} 
-const AppointmentListTableBody = ({status,id} :Test) => {
+
+type Props ={
+  appointment:AppointmentList
+  fetchAllAppointment:() => void
+}
+const AppointmentListTableBody = ({appointment,fetchAllAppointment} :Props) => {
   const [showUpdate,setShowUpdate] = useState(false);
   const [showRating,setShowRating] = useState(false);
   const [rating,setRating] = useState<number | null>(0)
 
-  const [arac,setArac] = useState<Arac>({
-    plaka:'34 RC 233',
-    marka:'BMW',
-    model:'M50',
-    paket:'IC DIS',
-    tarih:'10.12.2024'
-  })
   const handleCloseUpdate = () => setShowUpdate(false);
   const handleCloseRatind = () => setShowRating(false);
 
+  const dispatch = useDispatch()
+
+  const deleteHandler = async () => {
+    const result: SweetAlertResult = await Swal.fire({
+      title: 'Iptal etmek istediginizden emin misiniz',
+      text: 'Bu islem geri alinamaz!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Evet. Sil',
+      confirmButtonColor: '#f1416c',
+      cancelButtonText: 'Iptal et!',
+      reverseButtons: true,
+    })
+
+    if (result.isConfirmed) {
+      deleteVehicle()
+    }
+  }
+  const deleteVehicle = () => {
+    HttpService.delete(`Appointmets/delete?appointmentId=${appointment.id}`)
+      .then(() => {
+        Swal.fire('Iptal Edildi!', 'Randevu basarili bir sekilde iptal edildi.', 'success')
+        fetchAllAppointment();
+      })
+      .catch((err) => {
+        const data = err.response.data
+        dispatch(
+          showNotification({
+            type: 'error',
+            message: `${data.messages}`,
+          })
+        )
+      })
+  }
+
   return (
-    <tr key={id}>
-      <td>{arac.plaka}</td>
-      <td>{arac.marka}</td>
-      <td>{arac.model}</td>
-      <td>{arac.paket}</td>
-      <td>{moment(arac.tarih).format('YYYY-MM-DD')}</td>
+    <tr key={appointment.id}>
+      <td>{appointment.vehicle.plateNumber}</td>
+      <td>{appointment.vehicle.brand.name}</td>
+      <td>{appointment.vehicle.model}</td>
+      <td>{appointment.packageName}</td>
+      <td>{moment(appointment.appointmentDate).format('YYYY-MM-DD')}</td>
       <td>
-        {status && rating !== 0 ? (
-          <Rating
-            size='large'
-            name='simple-controlled'
-            value={rating}
-            readOnly
-          />
+        {appointment.rating ? (
+          <Rating size='large' name='simple-controlled' value={appointment.rating} readOnly />
         ) : (
           <span>{'-'}</span>
         )}
       </td>
       <td>
         <div className='d-flex justify-content-center'>
-          {!status && (
+          {appointment.carWashStatus === CarWashStatus.Waiting && (
             <>
-              <button className='btn btn-secondary me-2' onClick={() => setShowUpdate(true)}>
-                Duzenle
-              </button>
-              <button className='btn btn-danger' onClick={() => {}}>
+              <button className='btn btn-danger' onClick={deleteHandler}>
                 Iptal
               </button>
             </>
           )}
-          {status && (
+          {appointment.carWashStatus === CarWashStatus.InProcess && (
+            <span className={'sizeList badge badge-light-warning'}>
+              Yikama Isleminde
+            </span>
+          )}
+          {appointment.carWashStatus === CarWashStatus.Complete&&(
             <button
               disabled={false}
               className='btn btn-warning'
@@ -70,8 +95,12 @@ const AppointmentListTableBody = ({status,id} :Test) => {
           )}
         </div>
       </td>
-      <UpdateModal handleClose={handleCloseUpdate} show={showUpdate} arac={arac} />
-      <RatingModal handleClose={handleCloseRatind} show={showRating} arac={arac} rating={rating} setRating={setRating}/>
+      <RatingModal
+        handleClose={handleCloseRatind}
+        appointment={appointment}
+        show={showRating}
+        fetchAllAppointment={fetchAllAppointment}
+      />
     </tr>
   )
 }

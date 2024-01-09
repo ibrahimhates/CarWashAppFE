@@ -48,9 +48,12 @@ export interface UserSocialNetworksModel {
 }
 
 export interface UserModel {
+  userName:string
+  firstName:string
+  lastName:string
   fullName: string
-  id: string
+  phoneNumber:string
+  address:string
+  id: number
   email: string
-  profilePicture: string
-  role: string
 }

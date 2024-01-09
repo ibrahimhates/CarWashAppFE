@@ -29,7 +29,7 @@ const RatingDetailListTableBody = ({detail}: Props) => {
       <td>
         {detail.rating ? (
           <div className='d-inline-flex align-items-center'>
-            <Rating size='medium' name='simple-controlled' value={detail.rating+1} readOnly />
+            <Rating size='medium' name='simple-controlled' value={detail.rating} readOnly />
           </div>
         ) : (
           <span>{'-'}</span>

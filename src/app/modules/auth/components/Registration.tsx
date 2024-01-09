@@ -4,8 +4,7 @@ import {useState, useEffect} from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {getUserByToken, register, REGISTER_URL} from '../core/_requests'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {PasswordMeterComponent} from '../../../../_metronic/assets/ts/components'
 import {useAuth} from '../core/Auth'
@@ -13,6 +12,7 @@ import {UserModel} from '../core/_models'
 import {useDispatch} from 'react-redux'
 import {showNotification} from '../../../actions/notificationAction'
 import HttpService from '../../../services/HttpService'
+import {REGISTER_URL} from '../core/_requests'
 
 export interface CustomerCreate {
   firstname: string
@@ -74,7 +74,7 @@ const registrationSchema = Yup.object().shape({
 export function Registration() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
-  const {setCurrentUser} = useAuth()
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
@@ -98,10 +98,9 @@ export function Registration() {
               message: 'Musteri basarili bir sekilde olusturuldu',
             })
           )
-          //const {data: user} = await getUserByToken(null) // todo burasi duzeltilecek
-          const user: UserModel = getUserByToken(null)
           setLoading(false)
           formik.resetForm()
+          navigate("/auth/login")
         })
         .catch((err) => {
           const data = err.response.data

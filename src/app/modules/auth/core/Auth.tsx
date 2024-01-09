@@ -11,9 +11,9 @@ import {
 import { LayoutSplashScreen } from '../../../../_metronic/layout/core'
 import { AuthModel, UserModel } from './_models'
 import * as authHelper from './AuthHelpers'
-import { getUserByToken } from './_requests'
 import { WithChildren } from '../../../../_metronic/helpers'
 import Cookies from 'js-cookie'
+import {getUserInfosByToken} from './_requests'
 
 type AuthContextProps = {
   auth: AuthModel | undefined
@@ -60,10 +60,9 @@ const AuthInit: FC<WithChildren> = ({ children }) => {
     const requestUser = async (apiToken: any) => {
       try {
         if (!didRequest.current) {
-          /*const { data } = await getUserByToken(apiToken)*/ // todo duzeltilecek
-          const data:UserModel = getUserByToken(null);
+          const {data} = await getUserInfosByToken(Cookies.get('authToken'))
           if (data) {
-            setCurrentUser(data)
+            setCurrentUser(data.data)
           }
         }
       } catch (error) {
