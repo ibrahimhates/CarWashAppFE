@@ -22,14 +22,8 @@ const Footer = () => {
 
       <ul className='menu menu-gray-600 menu-hover-primary fw-semibold order-1'>
         <li className='menu-item'>
-          <a href='https://keenthemes.com/' target='_blank' className='menu-link px-2'>
-            About
-          </a>
-        </li>
-
-        <li className='menu-item'>
-          <a href='https://devs.keenthemes.com/' target='_blank' className='menu-link px-2'>
-            Support
+          <a href='https://www.linkedin.com/in/ibrahim-halil-ate%C5%9F-457210227/' target='_blank' className='menu-link px-2'>
+            About Ibrahim Halil Ates
           </a>
         </li>
       </ul>

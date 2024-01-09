@@ -6,12 +6,10 @@ type Props = {
   handleClose: () => void
   show: boolean
   userId: number
-  name:string
+  name: string
 }
 
-
-
-const RatingDetailModal = ({handleClose, show,userId,name}: Props) => {
+const RatingDetailModal = ({handleClose, show, userId, name}: Props) => {
   return (
     <Modal
       id='create_position_modal'
@@ -23,10 +21,10 @@ const RatingDetailModal = ({handleClose, show,userId,name}: Props) => {
       backdrop={true}
     >
       <ModalHeader className='justify-content-center'>
-        <ModalTitle>{name+' Raporu'}</ModalTitle>
+        <ModalTitle>{name + ' Raporu'}</ModalTitle>
       </ModalHeader>
       <ModalBody>
-        <RatingDetailListTable userId={userId}/>
+        <RatingDetailListTable userId={userId} />
       </ModalBody>
     </Modal>
   )

@@ -6,7 +6,6 @@ import {Content} from './components/content'
 import {FooterWrapper} from './components/footer'
 import {Sidebar} from './components/sidebar'
 import {
-  DrawerMessenger,
   ActivityDrawer,
   InviteUsers,
   UpgradePlan,
@@ -43,7 +42,6 @@ const MasterLayout = () => {
 
         {/* begin:: Drawers */}
         <ActivityDrawer />
-        <DrawerMessenger />
         {/* end:: Drawers */}
 
         {/* begin:: Modals */}

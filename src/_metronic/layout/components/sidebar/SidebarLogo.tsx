@@ -18,23 +18,23 @@ const SidebarLogo = () => {
   const appSidebarDefaultMinimizeDefault = config.app?.sidebar?.default?.minimize?.desktop?.default
   return (
     <div className='app-sidebar-logo px-6' id='kt_app_sidebar_logo'>
-      <Link to='/dashboard'>
+      <Link to='/profiles'>
         {config.layoutType === 'dark-sidebar' ? (
           <img
             alt='Logo'
-            src={toAbsoluteUrl('/media/logos/path-logo.svg')}
+            src={toAbsoluteUrl('/icons/logos/logo.png')}
             className='h-25px app-sidebar-logo-default'
           />
         ) : (
           <>
             <img
               alt='Logo'
-              src={toAbsoluteUrl('/media/logos/path-logo.svg')}
+              src={toAbsoluteUrl('/icons/logos/logo.png')}
               className='h-25px app-sidebar-logo-default theme-light-show'
             />
             <img
               alt='Logo'
-              src={toAbsoluteUrl('/media/logos/path-logo.svg')}
+              src={toAbsoluteUrl('/icons/logos/logo.png')}
               className='h-25px app-sidebar-logo-default theme-dark-show'
             />
           </>
@@ -42,7 +42,7 @@ const SidebarLogo = () => {
 
         <img
           alt='Logo'
-          src={toAbsoluteUrl('/media/logos/path-logo.svg')}
+          src={toAbsoluteUrl('/icons/logos/logo.png')}
           className='h-20px app-sidebar-logo-minimize'
         />
       </Link>

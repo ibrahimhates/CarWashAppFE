@@ -21,44 +21,7 @@ const Navbar = () => {
   const decode: { Role: string } = customJwtDecode(token)
   const role: string = decode.Role
   return (
-    <div className='app-navbar flex-shrink-0 bg-white'>
-      <div className={clsx('app-navbar-item align-items-stretch', itemClass)}>
-        <div className='d-flex align-items-center'>
-          <span className='badge badge-primary me-2 fs-5 fw-bolder my-2'>{role}</span>
-        </div>
-      </div>
-      <div className={clsx('app-navbar-item align-items-stretch', itemClass)}>
-        <Search />
-      </div>
-
-      {/* <div className={clsx('app-navbar-item', itemClass)}>
-        <div id='kt_activities_toggle' className={btnClass}>
-          <KTSVG path='/media/icons/duotune/general/gen032.svg' className={btnIconClass} />
-        </div>
-      </div> */}
-
-      {/* <div className={clsx('app-navbar-item', itemClass)}>
-        <div
-          data-kt-menu-trigger="{default: 'click'}"
-          data-kt-menu-attach='parent'
-          data-kt-menu-placement='bottom-end'
-          className={btnClass}
-        >
-          <KTSVG path='/media/icons/duotune/general/gen022.svg' className={btnIconClass} />
-        </div>
-        <HeaderNotificationsMenu />
-      </div> */}
-
-      {/* <div className={clsx('app-navbar-item', itemClass)}>
-        <div className={clsx('position-relative', btnClass)} id='kt_drawer_chat_toggle'>
-          <KTSVG path='/media/icons/duotune/communication/com012.svg' className={btnIconClass} />
-          <span className='bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink' />
-        </div>
-      </div> */}
-
-      <div className={clsx('app-navbar-item', itemClass)}>
-        <ThemeModeSwitcher toggleBtnClass={clsx('btn-active-light-primary btn-custom')} />
-      </div>
+    <div className='app-navbar bg-white'>
 
       <div className={clsx('app-navbar-item', itemClass)}>
         <div
